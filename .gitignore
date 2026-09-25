@@ -1,0 +1,24 @@
+# Source archives — already extracted (public upstream repos)
+New folder/
+
+# Bulk evaluation benchmark data (awesome-hand-pose-estimation: 737 MB of numeric dumps)
+awesome-hand-pose-estimation-master/evaluation/
+
+# Installers / native binaries / archives
+*.msi
+*.exe
+*.so
+*.a
+*.zip
+
+# Generated knowledge graph (regenerable via graphify)
+graphify-out/graph.json
+graphify-out/graph.html
+graphify-out/cache/
+
+# OS / editor noise
+Thumbs.db
+.DS_Store
+__pycache__/
+*.pyc
+node_modules/
