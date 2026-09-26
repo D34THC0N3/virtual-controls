@@ -1,0 +1,38 @@
+[project]
+name = "vctrl"
+version = "0.1.0"
+description = "Webcam eye/hand tracking -> virtual controller, mouse and keyboard"
+requires-python = ">=3.14"
+dependencies = [
+    "mediapipe==1.0.1",
+    "pydantic>=2.13",
+]
+
+[project.optional-dependencies]
+gui = ["PySide6>=6.11"]
+gamepad = ["vgamepad==0.1.0"]
+
+[project.scripts]
+vctrl = "vctrl.__main__:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "ruff>=0.9",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py314"
+extend-exclude = ["depthai_hand_tracker-main", "EyeTracker-main", "minimal-hand-master", "PyGaze-master"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-m 'not live'"
+markers = [
+    "live: needs a real webcam (and later, real SendInput) - opt in with -m live",
+]
